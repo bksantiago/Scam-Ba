@@ -1,0 +1,27 @@
+# Postgres with the pgvector extension — the scam-story knowledge base for RAG.
+# Not required for the current vertical slice (the heuristic analyzer runs
+# without it), but here so retrieval can be wired up without extra setup.
+#
+#   npm run db:up      # start
+#   npm run db:down    # stop
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: scamba-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: scamba
+      POSTGRES_PASSWORD: scamba
+      POSTGRES_DB: scamba
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scamba -d scamba"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

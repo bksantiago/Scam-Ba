@@ -1,0 +1,30 @@
+/*
+ * Design tokens — "Bula" theme, ported from the imported Claude Design project
+ * (Scam ba to.dc.html). Light, rounded, playful: cream canvas, Baloo 2 type, a
+ * forest-green accent, and a green→amber→red scale that drives the verdict tint.
+ *
+ * The dynamic, score-driven styling lives in TS (frontend/src/lib/theme.ts &
+ * scoring.ts); these tokens cover the page baseline only.
+ */
+:root {
+  /* Canvas + ink */
+  --bg-base: #f1eee6;
+  --ink: #21302a;
+  --ink-soft: #5d6e64;
+
+  /* Accent */
+  --accent: #2f7d52;
+
+  /* Surfaces */
+  --chip-bg: #ffffff;
+  --chip-border: #dde6dc;
+  --track: #dfe9df;
+
+  /* Verdict scale */
+  --safe: #3f9d5a;
+  --caution: #e0a32a;
+  --scam: #d2452f;
+
+  /* Type */
+  --font-sans: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
